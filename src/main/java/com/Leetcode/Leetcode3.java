@@ -1,14 +1,12 @@
 package com.Leetcode;
 
 import java.util.HashSet;
-import java.util.Queue;
 import java.util.Set;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class Leetcode3 {
     public static void main(String[] args) {
-        String s = "abcdef";
-        System.out.println(lengthOfLongestSubstring1(s));
+        String s = "abcdaefc";
+        System.out.println(lengthOfLongestSubstring(s));
     }
 
     /**
@@ -36,22 +34,4 @@ public class Leetcode3 {
         return res;
     }
 
-
-    public static int lengthOfLongestSubstring1(String s) {
-        Queue<Character> queue = new LinkedBlockingDeque<>();
-        int res = 0;
-        int right = 0;
-        while (right < s.length()) {
-            if (queue.contains(s.charAt(right))) {
-                queue.poll();
-
-            } else {
-                queue.add(s.charAt(right));
-                right++;
-                ;
-            }
-            res = Math.max(res, queue.size());
-        }
-        return res;
-    }
 }
